@@ -18,8 +18,8 @@
 
 		// Set defaults
 		var defaults = {
-			complete: function(){},
-			failure: function(){},
+			complete: function() {},
+			failure: function() {},
 			mapOptions: {}
 		};
 		var options = jQuery.extend(defaults, options);
@@ -54,7 +54,7 @@
 			directionsService.route(request, function (response, status) {
 				if (status == google.maps.DirectionsStatus.OK) {
 					google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
-						setTimeout(options.complete, 500);
+						setTimeout(options.complete, 500, response, $this);
 					});
 					directionsDisplay.setDirections(response);
 				} else {
